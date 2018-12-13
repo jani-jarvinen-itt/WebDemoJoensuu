@@ -51,7 +51,13 @@ namespace AspNetCoreBackend.Controllers
             StringBuilder teksti = new StringBuilder();
 
             NorthwindContext malli = new NorthwindContext();
-            foreach (Customers asiakas in malli.Customers)
+
+            List<Customers> suomalaiset = (from c in malli.Customers
+                                           where c.Country == "Finland"
+                                           orderby c.CompanyName
+                                           select c).ToList();
+
+            foreach (Customers asiakas in suomalaiset)
             {
                 teksti.AppendLine(asiakas.CompanyName);
             }
