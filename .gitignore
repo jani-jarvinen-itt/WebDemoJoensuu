@@ -6,3 +6,5 @@
 /AspNetCoreBackend/AspNetCoreBackend/bin/Debug/netcoreapp2.1
 /AspNetCoreBackend/AspNetCoreBackend/obj/Debug/netcoreapp2.1
 /AspNetCoreBackend/.vs/AspNetCoreBackend/DesignTimeBuild
+/ReactWebFrontEnd/node_modules
+/ReactWebFrontEnd/yarn.lock
