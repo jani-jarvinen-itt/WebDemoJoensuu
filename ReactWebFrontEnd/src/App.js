@@ -7,13 +7,13 @@ class App extends Component {
     super(props);
     console.log("App-komponentti: konstruktori (rakentaja).");
 
-    this.state = null;
+    this.state = { asiakkaat: [] };
   }
 
   componentDidMount() {
 
-    console.log("App-komponentti: componentDidMount-metodissa.");
-    this.setState({ title: "Väliaikainen otsikko"} );
+    // console.log("App-komponentti: componentDidMount-metodissa.");
+    // this.setState({ title: "Väliaikainen otsikko"} );
 
     fetch('https://localhost:44357/api/customers')
       .then(response => response.json())
@@ -21,7 +21,7 @@ class App extends Component {
         console.log(json);
 
         console.log("App-komponentti: aloitetaan setState()-kutsu.");
-        this.setState(json);
+        this.setState({ asiakkaat: json });
         console.log("App-komponentti: setState()-metodia kutsuttu.");
 
       });
@@ -33,14 +33,30 @@ class App extends Component {
 
     console.log("App-komponentti: render-metodissa.");
 
-    let otsikko = "";
-    if (this.state != null) {
-      otsikko = this.state.title;
+    let viesti = "";
+    let taulukko = [];
+    if (this.state.asiakkaat.length > 0) {
+
+      for (let index = 0; index < this.state.asiakkaat.length; index++) {
+        const element = this.state.asiakkaat[index];
+        taulukko.push(<tr>
+          <td>{element.customerId}</td>
+          <td>{element.companyName}</td>
+          <td>{element.city}</td>
+        </tr>);
+      }
+      
+    }
+    else {
+      viesti = "Ladataan tietoja..."
     }
 
     return (<div>
       <h1>App-komponentti</h1>
-      <p>{otsikko}</p>
+      <p>{viesti}</p>
+      <table>
+      {taulukko}
+      </table>
     </div>
     );
   }
