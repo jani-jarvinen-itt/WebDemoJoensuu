@@ -1,0 +1,3 @@
+C:\CodeBootcamp\WebDemo\WebDemoJoensuu\ReactWebFrontEnd\obj\Debug\ReactWebFrontEnd.njsprojAssemblyReference.cache
+C:\CodeBootcamp\WebDemo\WebDemoJoensuu\ReactWebFrontEnd\obj\Debug\ReactWebFrontEnd.njsproj.CoreCompileInputs.cache
+C:\CodeBootcamp\WebDemo\WebDemoJoensuu\ReactWebFrontEnd\bin\Microsoft.NodejsTools.WebRole.dll
